@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style type="text/css">
+        body{
+            color: rgb(90, 59, 32);
+            display: flex;
+            flex-direction: column;
+            max-height: 100vh; /* to bring it down */
+            align-items: center;
+            overflow: hidden;
+        }
+        h1{
+            
+            text-align: center;
+        }
+        .login-1,.signup-1{
+            /* height: 50%;
+            width: 50%; */
+            /* height: 10%; */
+            align-content: center;
+            max-width: 300px;
+            border: 1px solid black; 
+            padding: 5rem;
+            /* color: rgb(90, 59, 32); */
+            font-weight: bold;
+            background-color: rgba(222, 184, 135,0.9);;
+        }
+        h2{
+            text-align: center;
+            font-size: 30px;
+        }
+        .input label{
+            text-align: left; 
+              
+        }
+        .input input{
+            margin-top: 0.7rem;
+            margin-bottom: 0.7rem;
+            height: 1.1rem;
+            padding-top: 0.1rem;
+            padding-bottom: 0.1rem;
+            padding-left: 0.7rem;
+            /* text-align: center; */
+            border-radius:10px ;
+        }
+        .btn{
+            all:unset;
+            text-align: center;
+            border-radius:10px ;
+            /* align-content: center; */
+            width: 10em;
+            height: 1.7rem;
+            border: 0.8px double white;
+            background-color: rgba(0,0,0,0.4);
+            cursor:pointer; /* to get the hand on hovering over the button */
+        }
+        .link{
+            font-weight: unset;
+        }
+        .link a{
+            color:rgb(1, 152, 6);
+            font-weight: bold;
+        }
+        a:visited{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+   
+    <!-- for login page -->
+    <div class="login" id="login">
+        <h1>WELCOME BACK!!</h1>
+        <div class="login-1">
+            <h2>LOG IN</h2>
+            <form>
+                <!-- username -->
+                <div class="input">
+                    <label for="username">Enter Username</label><br>        
+                    <input type="text" name="username" placeholder="Enter Username" required>
+                </div>
+                <!-- password -->
+                <div class="input">
+                    <label for="password">Enter Password</label><br>     
+                    <input type="password" name="password" placeholder="Enter Password" required>
+                </div>
+                <button type="submit" class="btn"> Login</button>
+            </form>
+            <p class="link">Your first time here? then <a href="#signup">Sign Up</a></p> 
+        </div>
+
+    </div>
+        <!-- for sign up -->
+        <div class="signup" id="signup" style="display:none;">
+            <h1>WELCOME!!</h1>
+            <div class="signup-1">
+                <h2>SIGN UP</h2>
+                <form>
+                    <!-- Name -->
+                    <div class="input">
+                        <label for="username">Enter Username</label>           
+                        <input type="text" name="username" placeholder="Enter Username" required>
+                    </div>
+                    <!-- email -->
+                    <div class="input">
+                        <label for="email">Enter Email</label>
+                        <input type="email" name="email" placeholder="Enter Email" required>
+                    </div>
+                    <!-- password -->
+                    <div class="input">
+                        <label for="password">Enter Password</label>       
+                        <input type="password" name="password" placeholder="Enter Password" required>
+                    </div>
+                    <button type="submit"> Sign up</button>
+                </form>
+                <p class="link">Been here before? then <a href="#login">Log In</a></p> 
+            </div>
+        </div>
+</body>
+</html>
