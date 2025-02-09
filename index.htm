@@ -6,38 +6,71 @@
     <title>Login Page</title>
     <style type="text/css">
         body{
-            color: rgb(90, 59, 32);
+            /* color: rgb(90, 59, 32); */
             display: flex;
             flex-direction: column;
             max-height: 100vh; /* to bring it down */
             align-items: center;
             overflow: hidden;
+            
+        }
+        #bgVid{
+            z-index:-1;
+            margin:-20px;
+            top:0;
+            bottom:0;
+            object-fit: cover;
+            width: 200%;
+            height: 200%;
+            position: fixed; 
         }
         h1{
-            
+            color: rgb(225, 225, 225);
+            /* box-shadow: 30px;
+            box-shadow: 20px; */
+            z-index:1;
+            font-family: Snap ITC;
+            letter-spacing: 2px;
             text-align: center;
         }
+        .signup-1 form input{
+            
+            display: grid;
+            grid-template-columns:6fr 6fr;
+            z-index:1;
+        }
         .login-1,.signup-1{
-            /* height: 50%;
-            width: 50%; */
-            /* height: 10%; */
+            font-family: Footlight MT Light;
+            z-index:1;
             align-content: center;
             max-width: 300px;
             border: 1px solid black; 
-            padding: 5rem;
+            box-shadow: 5px 8px 10px rgb(255, 119, 0);
             /* color: rgb(90, 59, 32); */
             font-weight: bold;
-            background-color: rgba(222, 184, 135,0.9);;
+            background-color: rgb(255, 244, 162);;
+        }
+        .login-1{
+            padding: 5rem;
+        }
+        .signup-1{
+            padding-left:6rem;
+            padding-right:6rem;
+            padding-top:2rem;
+            padding-bottom:4rem;
         }
         h2{
+            z-index:1;
             text-align: center;
             font-size: 30px;
         }
+
         .input label{
+            z-index:1;
             text-align: left; 
-              
         }
         .input input{
+            z-index:1;
             margin-top: 0.7rem;
             margin-bottom: 0.7rem;
             height: 1.1rem;
@@ -48,30 +81,37 @@
             border-radius:10px ;
         }
         .btn{
+            z-index:1;
             all:unset;
             text-align: center;
             border-radius:10px ;
-            /* align-content: center; */
             width: 10em;
             height: 1.7rem;
-            border: 0.8px double white;
+            margin-left:10%;
+            margin-right:10%;
+            border: 2px solid rgb(91, 51, 14);
             background-color: rgba(0,0,0,0.4);
             cursor:pointer; /* to get the hand on hovering over the button */
         }
         .link{
+            z-index:1;
             font-weight: unset;
         }
         .link a{
+            z-index:1;
             color:rgb(1, 152, 6);
             font-weight: bold;
         }
         a:visited{
+            z-index:1;
             color:red;
         }
     </style>
 </head>
 <body>
-   
+    <video autoplay muted loop id="bgVid">
+        <source src="public/videos/videoplayback.mp4" type="video/mp4">
+      </video>
     <!-- for login page -->
     <div class="login" id="login">
         <h1>WELCOME BACK!!</h1>
@@ -90,9 +130,8 @@
                 </div>
                 <button type="submit" class="btn"> Login</button>
             </form>
-            <p class="link">Your first time here? then <a href="#signup">Sign Up</a></p> 
+            <p class="link">Your first time here? then <a href="#signup" onclick="toggle()">Sign Up</a></p> 
         </div>
-
     </div>
         <!-- for sign up -->
         <div class="signup" id="signup" style="display:none;">
@@ -115,10 +154,23 @@
                         <label for="password">Enter Password</label>       
                         <input type="password" name="password" placeholder="Enter Password" required>
                     </div>
-                    <button type="submit"> Sign up</button>
+                    <button type="submit" class="btn"><a href="#login" onclick> Sign up</a></button>
                 </form>
-                <p class="link">Been here before? then <a href="#login">Log In</a></p> 
+                <p class="link">Been here before? then <a href="#login" onclick="toggle()">Log In</a></p> 
             </div>
         </div>
+        
+        <script>
+            // Get the elements
+            let loginBox = document.getElementById('login');
+            let signupBox = document.getElementById('signup');
+
+            // Toggle display using actual current value
+            function toggle(){
+                loginBox.style.display = loginBox.style.display === 'none' ? 'block' : 'none';
+                signupBox.style.display = signupBox.style.display === 'none' ? 'block' : 'none';
+            }
+
+        </script>
 </body>
 </html>
