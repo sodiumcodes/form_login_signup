@@ -115,28 +115,49 @@
             z-index:1;
             color:red;
         }
-
+        
+        .message{
+            font-family: Footlight MT Light;
+            position: fixed;
+            top:27%;
+            /* bottom: 50%; */
+            transform: translate(-50,50);
+            z-index:1;
+            padding-left: 4rem;
+            padding-right: 4rem;
+            align-content: center;
+            border-radius: 40%/60%;
+            letter-spacing: 3px;
+            font-size: medium;
+            height: 250px;
+            max-width: 300px;
+            border: 1px solid rgb(35, 34, 33); 
+            box-shadow: 2px 1px 10px 10px rgba(137, 130, 123, 0.5);
+            color: white;
+            font-weight: bold;
+            background-color: rgba(0,0,0,0.9);
+        }
     </style>
 </head>
 <body>
     <video autoplay muted loop id="bgVid">
-        <source src="public/videos/videoplayback.mp4" type="video/mp4">
+        <source src="public/videos/bg_video.mp4" type="video/mp4">
       </video>
     <!-- for login page -->
     <div class="login" id="login">
         <h1>WELCOME BACK!!</h1>
         <div class="login-1">
             <h2>LOG IN</h2>
-            <form>
+            <form onsubmit="handlelogin(event)">
                 <!-- username -->
                 <div class="input">
                     <label for="username">Enter Username</label><br>        
-                    <input type="text" name="username" placeholder="Enter Username" required>
+                    <input type="text" id="loginUserName" name="username" placeholder="Enter Username" required>
                 </div>
                 <!-- password -->
                 <div class="input">
                     <label for="password">Enter Password</label><br>     
-                    <input type="password" name="password" placeholder="Enter Password" required>
+                    <input type="password" id="loginPassword" name="password" placeholder="Enter Password" required>
                 </div>
                 <button type="submit" class="btn" style="color:rgb(210, 208, 208);"> Login</button>
             </form>
@@ -169,7 +190,9 @@
                 <p class="link">Been here before? then <a href="#login" onclick="toggle()">Log In</a></p> 
             </div>
         </div>
-        
+        <div class="message" id="message" style="display: none;">
+            <p class="message-text"></p>
+        </div>
         <script>
             // Get the elements
             let loginBox = document.getElementById('login');
@@ -180,7 +203,20 @@
                 loginBox.style.display = loginBox.style.display === 'none' ? 'block' : 'none';
                 signupBox.style.display = signupBox.style.display === 'none' ? 'block' : 'none';
             }
-
+            //thank you message
+            function handlelogin(event){
+                event.preventDefault();//prevents the page from reloading
+                let userName= document.getElementById('loginUserName').value;
+                let password= document.getElementById('loginPassword').value;
+                thanks("THANK YOU FOR LOGGIN!");
+            }
+            function thanks(message){
+                //hides the form
+                document.getElementById('login').style.display="none";
+                //display the thank you message
+                document.querySelector('.message-text').innerText = message;
+                document.getElementById('message').style.display = "block";
+            }
         </script>
 </body>
 </html>
